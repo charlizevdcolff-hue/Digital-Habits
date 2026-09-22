@@ -1,0 +1,71 @@
+-- ===============================================================
+-- HOOKED ON THE FEED: DIGITAL WELLBEING  ANALYSIS
+-- Database: PostgreSQL (Supabase)
+-- Dataset: digital_habits (N = 300)
+-- ===============================================================
+
+-- ---------------------------------------------------------------
+-- 1. Daily Social Media Usage Tiers vs. Cognitive Performance
+-- ---------------------------------------------------------------
+SELECT 
+    CASE 
+        WHEN avg_daily_sm_hours < 3 THEN 'Low (<3 hrs)'
+        WHEN avg_daily_sm_hours BETWEEN 3 AND 6 THEN 'Moderate (3-6 hrs)'
+        ELSE 'High (>6 hrs)'
+    END AS usage_tier,
+    COUNT(*) AS total_participants,
+    ROUND(AVG(deep_work_duration_minutes)::numeric, 2) AS avg_deep_work_mins,
+    ROUND(AVG(attention_span_minutes)::numeric, 2) AS avg_attention_span_mins,
+    ROUND(AVG(tasks_completed_per_day)::numeric, 2) AS avg_tasks_completed,
+    ROUND(AVG(productivity_self_rating)::numeric, 2) AS avg_productivity_rating
+FROM digital_habits
+GROUP BY usage_tier
+ORDER BY avg_deep_work_mins DESC;
+
+
+-- ---------------------------------------------------------------
+-- 2. Platform Architecture: Short-Form vs. Professional Ecosystems
+-- ---------------------------------------------------------------
+SELECT 
+    primary_platform,
+    COUNT(*) AS total_users,
+    ROUND(AVG(avg_daily_sm_hours)::numeric, 2) AS avg_sm_hours,
+    ROUND(AVG(attention_span_minutes)::numeric, 2) AS avg_attention_span_mins,
+    ROUND(AVG(productivity_self_rating)::numeric, 2) AS avg_productivity_rating
+FROM digital_habits
+GROUP BY primary_platform
+ORDER BY avg_productivity_rating DESC;
+
+
+-- ---------------------------------------------------------------
+-- 3. The Biological Buffer: Sleep Duration as a Cognitive Shield
+-- ---------------------------------------------------------------
+SELECT 
+    CASE 
+        WHEN avg_sleep_hours < 6 THEN 'Short (<6 hrs)'
+        WHEN avg_sleep_hours <= 7.5 THEN 'Moderate (6-7.5 hrs)'
+        ELSE 'Optimal (>7.5 hrs)'
+    END AS sleep_tier,
+    COUNT(*) AS total_users,
+    ROUND(AVG(avg_daily_sm_hours)::numeric, 2) AS avg_sm_hours,
+    ROUND(AVG(avg_daily_screen_time_hours)::numeric, 2) AS avg_total_screen_hours,
+    ROUND(AVG(attention_span_minutes)::numeric, 2) AS avg_attention_span_mins,
+    ROUND(AVG(productivity_self_rating)::numeric, 2) AS avg_productivity_rating
+FROM digital_habits
+GROUP BY sleep_tier
+ORDER BY avg_total_screen_hours ASC;
+
+
+-- ---------------------------------------------------------------
+-- 4. Demographic & Life Stage Disruption (Employment & Education)
+-- ---------------------------------------------------------------
+SELECT 
+    employment_status,
+    education_level,
+    COUNT(*) AS participant_count,
+    ROUND(AVG(avg_daily_sm_hours)::numeric, 2) AS avg_daily_sm_hours,
+    ROUND(AVG(productivity_self_rating)::numeric, 2) AS avg_productivity_rating,
+    ROUND(AVG(tasks_completed_per_day)::numeric, 2) AS avg_tasks_completed
+FROM digital_habits
+GROUP BY employment_status, education_level
+ORDER BY avg_daily_sm_hours DESC;
