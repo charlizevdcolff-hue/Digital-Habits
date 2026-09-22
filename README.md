@@ -61,6 +61,6 @@ The goal of this analysis is to translate raw tracking data into actionable beha
 ---
 
 ## 📁 Repository Contents
-* `Digital_Wellbeing_Research.pdf` — Publication-ready executive research memo and manuscript chapter outlines.
-* `data/` — Anonymized empirical tracking dataset (N = 300).
-* `assets/` — Visual figures, comparative column charts, and summary metric cards.
+* `Digital_Wellbeing_Research.docx` — Publication-ready executive research memo and manuscript chapter outlines.
+* `social_media_dopamine_productivity.csv` — Anonymized empirical tracking dataset (N = 300).
+* `analysis_queries.sql.rtf` — SQL .
