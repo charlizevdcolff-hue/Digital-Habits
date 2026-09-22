@@ -62,5 +62,5 @@ The goal of this analysis is to translate raw tracking data into actionable beha
 
 ## 📁 Repository Contents
 * `Digital_Wellbeing_Research.docx` — Publication-ready executive research memo and manuscript chapter outlines.
-* `social_media_dopamine_productivity.csv` — Anonymized empirical tracking dataset (N = 300).
+* `social_media_dopamine_productivity.csv` — Anonymized empirical tracking dataset (N = 300), sourced from the Social Media, Dopamine, and Productivity Dataset on Kaggle by Manaswin Sripatnala.
 * `analysis_queries.sql` — PostgreSQL queries used in Supabase for data segmentation, aggregation, and statistical validation.
