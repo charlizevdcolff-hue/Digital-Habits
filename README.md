@@ -1,4 +1,4 @@
-# 📱 Hooked on the Feed: Rewiring the Distracted Brain
+# Hooked on the Feed: Rewiring the Distracted Brain
 > **An Empirical Study on Digital Overconsumption, Cognitive Endurance, and Sleep Hygiene**  
 > *Research collaboration with Dr. Elena Vance for the behavioral science manuscript "Hooked on the Feed"*
 
